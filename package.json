@@ -4,13 +4,14 @@
   "private": true,
   "dependencies": {
     "concurrently": "^3.5.1",
+    "dbus": "^1.0.2",
     "electron": "^1.7.10",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-scripts": "1.0.17"
   },
   "scripts": {
-    "start" : "concurrently --kill-others-on-fail \"yarn electron\" \"yarn react\"",
+    "start": "concurrently --kill-others-on-fail \"yarn electron\" \"yarn react\"",
     "electron": "electron .",
     "react": "BROWSER=none react-scripts start",
     "react-build": "react-scripts build",
