@@ -8,9 +8,9 @@ class App extends Component {
         <header className="App-header">
           <h1 className="App-title">Genie Lyrics</h1>
         </header>
-        <p className="App-intro">
-        Song Details
-        </p>
+  
+          <h1 className="App-title">Genie</h1>
+        
       </div>
     );
   }
