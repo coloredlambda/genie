@@ -1,5 +1,5 @@
 import React from 'react';
-import { SearchField, Button } from 'react-desktop';
+import { Button, Search } from 'semantic-ui-react';
 import './Dashboard.css';
 
 //Logo Image
@@ -23,9 +23,9 @@ class Dashboard extends React.Component{
                         height='100px'
                     />
 
-                    <h1>Search Lyrics Manually</h1>
+                    <h1>Search Song Manually</h1>
 
-                    <SearchField
+                    <Search
                         size='15px'
                         placeholder='The Chainsmokers - Closer'
                     />
@@ -34,8 +34,7 @@ class Dashboard extends React.Component{
                 <h1>Or</h1>
 
                 <Button
-                    color='blue'
-                    size='20px'
+                    color='#372D46'
                 >
                     Detect Song
                 </Button>
