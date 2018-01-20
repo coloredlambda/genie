@@ -1,6 +1,8 @@
 const electron = require('electron');
+const { app, BrowserWindow, Tray, ipcMain } = electron;
 
-const { app, BrowserWindow, Tray } = electron;
+// Importing function to detect song running on OS
+const detectSong = require('./songDetector');
 
 let MainWindow, MainTray;
 
@@ -42,4 +44,11 @@ const createMainWindow = () => {
 app.on('ready', () => {
     createMainWindow();
     createMainTray();
+
+    ipcMain.on('song:requestDetails', () => {
+        console.log('Requested song details');
+        detectSong();
+    });
+
+
 });
