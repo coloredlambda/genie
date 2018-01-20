@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
-import './App.css';
+import Dashboard from './Pages/Dashboard';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Genie Lyrics</h1>
-        </header>
-  
-          <h1 className="App-title">Genie</h1>
-        
-      </div>
-    );
-  }
+class App extends Component{
+    render(){
+        return(
+            <Dashboard/>
+        )
+    }
 }
+
 
 export default App;

@@ -6,8 +6,11 @@
     "concurrently": "^3.5.1",
     "dbus": "^1.0.2",
     "electron": "^1.7.10",
+    "node-genius": "^1.1.0",
     "react": "^16.2.0",
+    "react-desktop": "^0.3.3",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.2.2",
     "react-scripts": "1.0.17"
   },
   "scripts": {
