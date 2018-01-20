@@ -1,4 +1,7 @@
 const dbus = require('dbus');
+let bus = dbus.getBus('session');
+
+
 
 // I put the dbus service details in arrays so we can support more players in future
 const service = ['org.gnome.Rhythmbox3'];
@@ -7,7 +10,6 @@ const serviceInterface = ['org.mpris.MediaPlayer2.Player'];
 
 // Function to detect running song on OS
 const detectSong = () => {
-    const bus = new dbus.getBus('session');
     console.log('Detecting song');
     bus.getInterface(service[0], servicePath[0], serviceInterface[0], (err, player) => {
         if(err){
@@ -19,7 +21,6 @@ const detectSong = () => {
                     throw err;
                 }else{
                     console.log(properties.Metadata);
-                    bus.disconnect();
                 }
             })
         }
