@@ -21,6 +21,10 @@ class Dashboard extends React.Component{
     requestSongDetails(){
         this.setState({buttonLoading : true}, () => {
             ipcRenderer.send('song:requestDetails');
+        });
+
+        ipcRenderer.on('song:details', (event, details) => {
+            console.log(details);
         })
     }
 

@@ -1,8 +1,11 @@
 const electron = require('electron');
 const { app, BrowserWindow, Tray, ipcMain } = electron;
 
-// Importing function to detect song running on OS
-const detectSong = require('./songDetector');
+// Function to detect song running on OS
+const detectSong = require('./detectSong');
+
+//Function to find song on Genius
+const getSongInfo = require('./getSongInfo');
 
 let MainWindow, MainTray;
 
@@ -47,8 +50,9 @@ app.on('ready', () => {
 
     ipcMain.on('song:requestDetails', () => {
         console.log('Requested song details');
-        let songDetails = detectSong();
-        console.log(songDetails);
+        detectSong(song => {
+            getSongInfo(song);
+        });
     });
 
 
