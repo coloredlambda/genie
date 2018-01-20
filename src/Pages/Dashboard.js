@@ -2,18 +2,33 @@ import React from 'react';
 import { Button, Search } from 'semantic-ui-react';
 import './Dashboard.css';
 
-//Logo Image
+//Image Import
 import logo from '../Images/logo.png';
 import searchImage from '../Images/search.svg';
 
+
+// Electron import
+const electron = window.require('electron');
+const { ipcRenderer } = electron;
+
 class Dashboard extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    // Function to request song details from OS
+    requestSongDetails(){
+        ipcRenderer.send('song:requestDetails');
+
+    }
+
+
     render(){
         return(
             <div className="App">
                 <header className="App-header">
                     <img src={logo} height='30px' width='30px'/>
                     <h1 className="App-title">Genie</h1>
-                    <h3>Lyrical nerd</h3>
                 </header>
 
                 <div className='Search'>
@@ -34,7 +49,10 @@ class Dashboard extends React.Component{
                 <h1>Or</h1>
 
                 <Button
-                    color='#372D46'
+                    color='violet'
+                    circular
+                    size='large'
+                    onClick={() => {this.requestSongDetails()}}
                 >
                     Detect Song
                 </Button>
