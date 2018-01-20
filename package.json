@@ -6,6 +6,7 @@
     "concurrently": "^3.5.1",
     "dbus": "^1.0.2",
     "electron": "^1.7.10",
+    "electron-rebuild": "^1.7.3",
     "node-genius": "^1.1.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
