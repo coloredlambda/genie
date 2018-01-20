@@ -14,12 +14,14 @@ const { ipcRenderer } = electron;
 class Dashboard extends React.Component{
     constructor(props){
         super(props);
+        this.state = { buttonLoading : false };
     }
 
     // Function to request song details from OS
     requestSongDetails(){
-        ipcRenderer.send('song:requestDetails');
-
+        this.setState({buttonLoading : true}, () => {
+            ipcRenderer.send('song:requestDetails');
+        })
     }
 
 
@@ -53,6 +55,8 @@ class Dashboard extends React.Component{
                     circular
                     size='large'
                     onClick={() => {this.requestSongDetails()}}
+                    loading={this.state.buttonLoading}
+                    disabled={this.state.buttonLoading}
                 >
                     Detect Song
                 </Button>
