@@ -47,7 +47,8 @@ app.on('ready', () => {
 
     ipcMain.on('song:requestDetails', () => {
         console.log('Requested song details');
-        detectSong();
+        let songDetails = detectSong();
+        console.log(songDetails);
     });
 
 
