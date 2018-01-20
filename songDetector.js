@@ -10,6 +10,7 @@ const serviceInterface = ['org.mpris.MediaPlayer2.Player'];
 
 // Function to detect running song on OS
 const detectSong = () => {
+
     console.log('Detecting song');
     bus.getInterface(service[0], servicePath[0], serviceInterface[0], (err, player) => {
         if(err){
@@ -17,15 +18,14 @@ const detectSong = () => {
         }else{
             player.getProperties((err, properties) => {
                 if(err){
-                    bus.disconnect();
                     throw err;
                 }else{
                     console.log(properties.Metadata);
+                    return properties.Metadata;
                 }
             })
         }
     });
-
 
 };
 
